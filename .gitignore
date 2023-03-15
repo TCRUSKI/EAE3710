@@ -1,3 +1,3 @@
 *.bat
-..\Project\Assets\Scenes\Demo_Scene.unity
-..\Project\Assets\Scenes\Demo_Scene.unity.meta
+.\Project\Assets\Scenes\Demo_Scene.unity
+.\Project\Assets\Scenes\Demo_Scene.unity.meta
