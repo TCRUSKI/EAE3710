@@ -1,0 +1,214 @@
+Using pre-set license
+Built from '2021.3/staging' branch; Version is '2021.3.2f1 (d6360bedb9a0) revision 14038539'; Using compiler version '192829333'; Build Type 'Release'
+OS: 'Windows 10  (10.0.19044) 64bit Core' Language: 'en' Physical Memory: 130985 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 1
+
+COMMAND LINE ARGUMENTS:
+C:\Program Files\Unity\Hub\Editor\2021.3.2f1\Editor\Unity.exe
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker0
+-projectPath
+E:/Trad Game/Project
+-logFile
+Logs/AssetImportWorker0.log
+-srvPort
+53789
+Successfully changed project path to: E:/Trad Game/Project
+E:/Trad Game/Project
+[UnityMemory] Configuration Parameters - Can be set up in boot.config
+    "memorysetup-bucket-allocator-granularity=16"
+    "memorysetup-bucket-allocator-bucket-count=8"
+    "memorysetup-bucket-allocator-block-size=33554432"
+    "memorysetup-bucket-allocator-block-count=8"
+    "memorysetup-main-allocator-block-size=16777216"
+    "memorysetup-thread-allocator-block-size=16777216"
+    "memorysetup-gfx-main-allocator-block-size=16777216"
+    "memorysetup-gfx-thread-allocator-block-size=16777216"
+    "memorysetup-cache-allocator-block-size=4194304"
+    "memorysetup-typetree-allocator-block-size=2097152"
+    "memorysetup-profiler-bucket-allocator-granularity=16"
+    "memorysetup-profiler-bucket-allocator-bucket-count=8"
+    "memorysetup-profiler-bucket-allocator-block-size=33554432"
+    "memorysetup-profiler-bucket-allocator-block-count=8"
+    "memorysetup-profiler-allocator-block-size=16777216"
+    "memorysetup-profiler-editor-allocator-block-size=1048576"
+    "memorysetup-temp-allocator-size-main=16777216"
+    "memorysetup-job-temp-allocator-block-size=2097152"
+    "memorysetup-job-temp-allocator-block-size-background=1048576"
+    "memorysetup-job-temp-allocator-reduction-small-platforms=262144"
+    "memorysetup-temp-allocator-size-background-worker=32768"
+    "memorysetup-temp-allocator-size-job-worker=262144"
+    "memorysetup-temp-allocator-size-preload-manager=33554432"
+    "memorysetup-temp-allocator-size-nav-mesh-worker=65536"
+    "memorysetup-temp-allocator-size-audio-worker=65536"
+    "memorysetup-temp-allocator-size-cloud-worker=32768"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gfx=262144"
+Refreshing native plugins compatible for Editor in 62.42 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 2021.3.2f1 (d6360bedb9a0)
+[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2021.3.2f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path E:/Trad Game/Project/Assets
+GfxDevice: creating device client; threaded=0; jobified=0
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA TITAN Xp (ID=0x1b02)
+    Vendor:   NVIDIA
+    VRAM:     12139 MB
+    Driver:   31.0.15.2698
+Initialize mono
+Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2021.3.2f1/Editor/Data/Managed'
+Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2021.3.2f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
+Mono config path = 'C:/Program Files/Unity/Hub/Editor/2021.3.2f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56764
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2021.3.2f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2021.3.2f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.005525 seconds.
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 61.78 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.480 seconds
+Domain Reload Profiling:
+	ReloadAssembly (480ms)
+		BeginReloadAssembly (57ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (0ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (1ms)
+		EndReloadAssembly (342ms)
+			LoadAssemblies (55ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (71ms)
+			ReleaseScriptCaches (0ms)
+			RebuildScriptCaches (23ms)
+			SetupLoadedEditorAssemblies (210ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (7ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (62ms)
+				BeforeProcessingInitializeOnLoad (1ms)
+				ProcessInitializeOnLoadAttributes (108ms)
+				ProcessInitializeOnLoadMethodAttributes (32ms)
+				AfterProcessingInitializeOnLoad (0ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (0ms)
+Platform modules already initialized, skipping
+Registering precompiled user dll's ...
+Registered in 0.002616 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image E:\Trad Game\Project\Library\PackageCache\com.unity.visualscripting@1.7.6\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image E:\Trad Game\Project\Library\PackageCache\com.unity.visualscripting@1.7.6\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 0.56 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.756 seconds
+Domain Reload Profiling:
+	ReloadAssembly (757ms)
+		BeginReloadAssembly (87ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (4ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (18ms)
+		EndReloadAssembly (585ms)
+			LoadAssemblies (62ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (183ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (40ms)
+			SetupLoadedEditorAssemblies (276ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (6ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (67ms)
+				ProcessInitializeOnLoadAttributes (173ms)
+				ProcessInitializeOnLoadMethodAttributes (22ms)
+				AfterProcessingInitializeOnLoad (6ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (4ms)
+Platform modules already initialized, skipping
+========================================================================
+Worker process is ready to serve import requests
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.06 seconds
+Refreshing native plugins compatible for Editor in 0.74 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3361 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 26 unused Assets / (112.4 KB). Loaded Objects now: 3818.
+Memory consumption went from 115.8 MB to 115.7 MB.
+Total: 4.010400 ms (FindLiveObjects: 0.296800 ms CreateObjectMapping: 0.188800 ms MarkObjects: 3.414800 ms  DeleteObjects: 0.109100 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 4285130.972711 seconds.
+  path: Assets/Aina
+  artifactKey: Guid(7837714c0d15d784aad5fe20c16b4fe4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Aina using Guid(7837714c0d15d784aad5fe20c16b4fe4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '95b41aa325f6209305cecd23e83b1fef') in 0.013669 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Aina/level_one.png
+  artifactKey: Guid(35ee0eed4e736cc40b051ecdc3dc020b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Aina/level_one.png using Guid(35ee0eed4e736cc40b051ecdc3dc020b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fc2a9e0402aea324a1180bec033cd85d') in 0.101204 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 27.098840 seconds.
+  path: Assets/Adrianna
+  artifactKey: Guid(0208119f9410daa4fae44e680d439fd8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Adrianna using Guid(0208119f9410daa4fae44e680d439fd8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ec7efb3bb8e3065ca94fccd6bd1b4403') in 0.006052 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 2.273220 seconds.
+  path: Assets/Benson
+  artifactKey: Guid(41de2b38681d4464a99b7246b4a9f6db) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Benson using Guid(41de2b38681d4464a99b7246b4a9f6db) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'afb82bda020075026e8de45c84740892') in 0.006156 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 1.585500 seconds.
+  path: Assets/Benson/models
+  artifactKey: Guid(92481eab814f2504180674ab949de165) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Benson/models using Guid(92481eab814f2504180674ab949de165) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bc6768d00bebfcc3379de4546a4f9133') in 0.005714 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.058767 seconds.
+  path: Assets/Benson/models/Stalagmite_1.fbx
+  artifactKey: Guid(5525338d0b06fdb4584cfd17948ea5fd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Benson/models/Stalagmite_1.fbx using Guid(5525338d0b06fdb4584cfd17948ea5fd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4058b13c330b00dde176d5b084cc70e3') in 0.114324 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/Benson/models/Stalagmite_platform_2.fbx
+  artifactKey: Guid(90bede3544272414fb450a3aea5b6311) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Benson/models/Stalagmite_platform_2.fbx using Guid(90bede3544272414fb450a3aea5b6311) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '67e3db9b2ed3f7b6f586fbdbb2fd905c') in 0.023719 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/Benson/models/Stalagmite_5.fbx
+  artifactKey: Guid(7c8f6086df7291b4d9ee9fec3f7d43fb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Benson/models/Stalagmite_5.fbx using Guid(7c8f6086df7291b4d9ee9fec3f7d43fb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd8675e9c735269800b1faef12c0704b6') in 0.023324 seconds 
+Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
+AssetImportWorker is now disconnected from the server
+Process exiting
+Exiting without the bug reporter. Application will terminate with return code 0
