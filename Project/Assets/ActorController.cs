@@ -2,6 +2,7 @@ using System.Collections;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ActorController : MonoBehaviour
 {
@@ -9,7 +10,8 @@ public class ActorController : MonoBehaviour
     public Rigidbody rb;
     private RigidbodyConstraints defaultConstraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
 
-    public bool frozen {get; protected set;}
+    public bool ledge {get; protected set;}
+    public bool ladder {get; protected set;}
 
     public float framesSinceGrounced {get; protected set;}
 
@@ -65,18 +67,18 @@ public class ActorController : MonoBehaviour
             }
         }
         
-
+        
         
         
 
         if (Input.GetKey(KeyCode.Space)){
             if(IsGrounded())
             {
-                rb.velocity = rb.velocity + new Vector3(0, 4f, 0);
+                rb.velocity = rb.velocity + new Vector3(0, 2f, 0);
             } else if(framesSinceGrounced < 5){
-                rb.velocity = rb.velocity + new Vector3(0, 1f, 0);
-            } else if(frozen){
-                frozen = false;
+                rb.velocity = rb.velocity + new Vector3(0, .5f, 0);
+            } else if(ledge){
+                ledge = false;
                 framesSinceGrounced = 0;
                 rb.constraints = defaultConstraints;
                 rb.velocity = rb.velocity + new Vector3(0, 6f, 0);
@@ -100,24 +102,48 @@ public class ActorController : MonoBehaviour
             bool flag = Physics.Raycast(bc2d.bounds.center + new Vector3(0, bc2d.bounds.extents.y/2, 0), Vector3.forward, out hit, bc2d.bounds.extents.z + 0.05f);
             if(flag && hit.collider.gameObject.tag == "LedgeCollisionBox"){
                 rb.velocity = new Vector3(0,0,0);
-                frozen = true;
+                ledge = true;
                 rb.constraints = RigidbodyConstraints.FreezePosition | RigidbodyConstraints.FreezeRotation;
                 framesSinceClimb = 0;
             }
         }
 
+        if(ladder){
+            if(Math.Sign(Input.GetAxis("Vertical")) > 0) {
+                transform.position = transform.position + new Vector3(0, .1f, 0);
+            } else if (Math.Sign(Input.GetAxis("Vertical")) < 0){
+                transform.position = transform.position + new Vector3(0, -.1f, 0);
+            }
+        }
 
+        
     }
 
+    void OnTriggerEnter(Collider collision)
+    {
+        if(collision.GetComponent<Collider>().gameObject.tag == "LoadSceneCollisionBox"){
+            SceneManager.LoadScene(collision.GetComponent<Collider>().gameObject.GetComponent<LoadSceneCollisionBox>().Scene);
+        }
+        if(collision.GetComponent<Collider>().gameObject.tag == "Ladder"){
+            ladder = true;
+            rb.constraints = RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezeRotation;
+        }
+    }
+
+    void OnTriggerExit(Collider collision){
+        if(collision.GetComponent<Collider>().gameObject.tag == "Ladder"){
+            ladder = false;
+            rb.constraints = defaultConstraints;
+        }
+    }
+    
 
     private bool IsGrounded() 
     { 
         RaycastHit hit;
-        bool flag = Physics.Raycast(bc2d.bounds.center, Vector3.down, out hit, bc2d.bounds.extents.y + 0.05f);
-        if(flag && hit.collider.gameObject.tag == "LedgeCollisionBox"){
-            return false;
-        }
-        return flag;
+        bool flagL = Physics.Raycast(bc2d.bounds.center - new Vector3(0, bc2d.bounds.extents.z, 0), Vector3.down, out hit, bc2d.bounds.extents.y + 0.05f);
+        bool flagR = Physics.Raycast(bc2d.bounds.center + new Vector3(0, bc2d.bounds.extents.z, 0), Vector3.down, out hit, bc2d.bounds.extents.y + 0.05f);
+        return flagL || flagR;
     }
 
 
