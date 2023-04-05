@@ -1,9 +1,0 @@
-sceneSetups:
-<<<<<<< HEAD
-- path: Assets/Scenes/Demo_Scene.unity
-=======
-- path: Assets/Ronnie/Block_out.unity
->>>>>>> 368cbd859a3f6dee5bd916c9def528429d33978b
-  isLoaded: 1
-  isActive: 1
-  isSubScene: 0
