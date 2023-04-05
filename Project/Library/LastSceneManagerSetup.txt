@@ -1,0 +1,5 @@
+sceneSetups:
+- path: Assets/Ronnie/Block_out.unity
+  isLoaded: 1
+  isActive: 1
+  isSubScene: 0
