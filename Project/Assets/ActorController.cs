@@ -17,12 +17,24 @@ public class ActorController : MonoBehaviour
 
     public float framesSinceClimb {get; protected set;}
 
+    protected GameObject characterArt;
+    protected AudioSource audioSource;
+
+    protected Queue<(Texture, int)> animationQueue;
+    public Material redMat;
+    public Material DefaultMovement;
+    public AudioClip walkSound;
+    public AudioClip runSound;
+    public AudioClip jumpSound;
+
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         bc2d = GetComponent<BoxCollider>();
         framesSinceClimb = -1;
+        characterArt = gameObject.transform.GetChild(1).gameObject;
+        audioSource = gameObject.transform.GetChild(3).gameObject.GetComponent<AudioSource>();
     }
 
     
@@ -33,39 +45,82 @@ public class ActorController : MonoBehaviour
         bool shiftDown = Input.GetKey(KeyCode.LeftShift);
     
         if(Math.Sign(Input.GetAxis("Horizontal")) != Math.Sign(rb.velocity.z) && Math.Sign(rb.velocity.z) != 0 && Input.GetAxis("Horizontal") != 0){
-            //Debug.Log("Direction: " + Math.Sign(Input.GetAxis("Horizontal")) + "\nVelocity: " + Math.Sign(rb.velocity.z));
+
+
+
 
             rb.AddForce(new Vector3(0,0,Math.Sign(Input.GetAxis("Horizontal"))*50), ForceMode.Acceleration);
-
-
-
         } else {
             if(Math.Sign(Input.GetAxis("Horizontal")) > 0) {
+                if(characterArt.transform.localScale.x != Math.Abs(characterArt.transform.localScale.x)){
+                    characterArt.transform.localScale = new Vector3(Math.Abs(characterArt.transform.localScale.x), characterArt.transform.localScale.y, characterArt.transform.localScale.z);
+                    characterArt.transform.localPosition = new Vector3(characterArt.transform.localPosition.x, characterArt.transform.localPosition.y, -Math.Abs(characterArt.transform.localPosition.z));
+                }
                 if(!shiftDown){
+                    if(IsGrounded() && (audioSource.clip != walkSound || !audioSource.isPlaying)){
+                        audioSource.clip = walkSound;
+                        audioSource.loop = true;
+                        audioSource.Play();
+                    }
                     if(Math.Abs(rb.velocity.z) < 1.4){
                         rb.AddForce(new Vector3(0,0,5), ForceMode.Acceleration);
                     } else {
                         rb.velocity = rb.velocity - new Vector3(0, 0, rb.velocity.z/50);
                     }
                 } else if(Math.Abs(rb.velocity.z) < 5.4) {
+                    if(IsGrounded() && (audioSource.clip != runSound || !audioSource.isPlaying)){
+                        audioSource.clip = runSound;
+                        audioSource.loop = true;
+                        audioSource.Play();
+                    }
                     rb.AddForce(new Vector3(0,0,20), ForceMode.Acceleration);
                 } else {
-                        rb.velocity = rb.velocity - new Vector3(0, 0, rb.velocity.z/50);
+                    if(IsGrounded() && (audioSource.clip != runSound || !audioSource.isPlaying)){
+                        audioSource.clip = runSound;
+                        audioSource.loop = true;
+                        audioSource.Play();
+                    }
+                    rb.velocity = rb.velocity - new Vector3(0, 0, rb.velocity.z/50);
                 }
             } else if (Math.Sign(Input.GetAxis("Horizontal")) < 0) {
+                if(characterArt.transform.localScale.x != -Math.Abs(characterArt.transform.localScale.x)){
+                    characterArt.transform.localScale = new Vector3(-Math.Abs(characterArt.transform.localScale.x), characterArt.transform.localScale.y, characterArt.transform.localScale.z);
+                    characterArt.transform.localPosition = new Vector3(characterArt.transform.localPosition.x, characterArt.transform.localPosition.y, Math.Abs(characterArt.transform.localPosition.z));
+                }
                 if(!shiftDown){
+                    if(IsGrounded() && (audioSource.clip != walkSound || !audioSource.isPlaying)){
+                        audioSource.clip = walkSound;
+                        audioSource.loop = true;
+                        audioSource.Play();
+                    }
                     if(Math.Abs(rb.velocity.z) < 1.4){
                         rb.AddForce(new Vector3(0,0,-5), ForceMode.Acceleration);
                     } else {
                         rb.velocity = rb.velocity - new Vector3(0, 0, rb.velocity.z/50);
                     }
                 } else if(Math.Abs(rb.velocity.z) < 5.4) {
+                    if(IsGrounded() && (audioSource.clip != runSound || !audioSource.isPlaying)){
+                        audioSource.clip = runSound;
+                        audioSource.loop = true;
+                        audioSource.Play();
+                    }
                     rb.AddForce(new Vector3(0,0,-20), ForceMode.Acceleration);
                 } else {
-                        rb.velocity = rb.velocity - new Vector3(0, 0, rb.velocity.z/50);
+                    if(IsGrounded() && (audioSource.clip != runSound || !audioSource.isPlaying)){
+                        audioSource.clip = runSound;
+                        audioSource.loop = true;
+                        audioSource.Play();
+                    }
+                    rb.velocity = rb.velocity - new Vector3(0, 0, rb.velocity.z/50);
                 }
+            } else {
+                if(audioSource.isPlaying && audioSource.clip != jumpSound){
+                    audioSource.Stop();
+                }
+                rb.AddForce(new Vector3(0,0,Math.Sign(Input.GetAxis("Horizontal"))*50), ForceMode.Acceleration);
+                characterArt.GetComponent<Renderer>().sharedMaterial = DefaultMovement;
             }
-        }
+        } 
         
         
         
@@ -74,6 +129,9 @@ public class ActorController : MonoBehaviour
         if (Input.GetKey(KeyCode.Space)){
             if(IsGrounded())
             {
+                audioSource.clip = jumpSound;
+                audioSource.loop = false;
+                audioSource.Play();
                 rb.velocity = rb.velocity + new Vector3(0, 2f, 0);
             } else if(framesSinceGrounced < 5){
                 rb.velocity = rb.velocity + new Vector3(0, .5f, 0);
@@ -86,8 +144,16 @@ public class ActorController : MonoBehaviour
         }
 
         if(IsGrounded()){
+            if(framesSinceGrounced != 0){
+                audioSource.clip = jumpSound;
+                audioSource.loop = false;
+                audioSource.Play();
+            }
             framesSinceGrounced = 0;
         } else {
+            if(audioSource.isPlaying && audioSource.clip != jumpSound){
+                audioSource.Stop();
+            }
             framesSinceGrounced++;
         }
         if(framesSinceClimb != -1){
@@ -118,6 +184,13 @@ public class ActorController : MonoBehaviour
 
         
     }
+    void AddAnimation(Texture animation, int length){
+        animationQueue.Enqueue((animation, length));
+    }
+
+
+
+
 
     void OnTriggerEnter(Collider collision)
     {
