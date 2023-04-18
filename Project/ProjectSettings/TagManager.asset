@@ -8,6 +8,7 @@ TagManager:
   - LoadSceneCollisionBox
   - Ladder
   - MovingPlatform
+  - CharTag
   layers:
   - Default
   - TransparentFX
