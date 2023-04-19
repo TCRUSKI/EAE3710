@@ -279,7 +279,7 @@ GameObject:
   - component: {fileID: 8134082487411832611}
   m_Layer: 0
   m_Name: Character
-  m_TagString: Untagged
+  m_TagString: CharTag
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -380,11 +380,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bc2d: {fileID: 0}
   rb: {fileID: 0}
-  redMat: {fileID: 2100000, guid: 428f909c13b3c894f9e69758149e3a2d, type: 2}
-  DefaultMovement: {fileID: 2100000, guid: 003f9fd1f1bb7eb4e9fb67fabeb3efbe, type: 2}
-  walkSound: {fileID: 8300000, guid: 42779a950d9552b439c560cd5bbc7b6b, type: 3}
-  runSound: {fileID: 8300000, guid: 4871f70cebcc1484ca70a134587c2a0a, type: 3}
-  jumpSound: {fileID: 8300000, guid: abbcfeeb0cf307b4dbf21ab67bb91046, type: 3}
 --- !u!54 &8134082487411832611
 Rigidbody:
   m_ObjectHideFlags: 0
